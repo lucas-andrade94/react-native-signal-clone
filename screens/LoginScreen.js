@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, KeyboardAvoidingView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  KeyboardAvoidingView,
+  ScrollView,
+} from "react-native";
 import { Button, Input, Image } from "react-native-elements";
 import { StatusBar } from "expo-status-bar";
 
@@ -26,39 +31,47 @@ const LoginScreen = ({ navigation }) => {
   };
 
   return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
+    <KeyboardAvoidingView behavior="padding">
       <StatusBar style="light" />
-      <Image
-        source={{
-          uri: "https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png",
-        }}
-        style={{ width: 200, height: 200 }}
-      />
-      <View style={styles.inputContainer}>
-        <Input
-          placeholder="Email"
-          autoFocus
-          type="email"
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-        />
-        <Input
-          placeholder="Password"
-          secureTextEntry
-          type="password"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-          onSubmitEditing={signIn}
-        />
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <Image
+            source={{
+              uri: "https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png",
+            }}
+            style={{ width: 200, height: 200 }}
+          />
+          <View style={styles.inputContainer}>
+            <Input
+              placeholder="Email"
+              autoFocus
+              type="email"
+              value={email}
+              onChangeText={(text) => setEmail(text)}
+            />
+            <Input
+              placeholder="Password"
+              secureTextEntry
+              type="password"
+              value={password}
+              onChangeText={(text) => setPassword(text)}
+              onSubmitEditing={signIn}
+            />
+          </View>
 
-      <Button containerStyle={styles.button} onPress={signIn} title="Login" />
-      <Button
-        onPress={() => navigation.navigate("Register")}
-        containerStyle={styles.button}
-        type="outline"
-        title="Register"
-      />
+          <Button
+            containerStyle={styles.button}
+            onPress={signIn}
+            title="Login"
+          />
+          <Button
+            onPress={() => navigation.navigate("Register")}
+            containerStyle={styles.button}
+            type="outline"
+            title="Register"
+          />
+        </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 };
