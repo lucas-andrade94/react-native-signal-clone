@@ -16,7 +16,6 @@ Project developed using the following technologies:
 - [Expo](https://expo.io/)
 - [React Navigation](https://reactnavigation.org/)
 - [Firebase](https://firebase.google.com/)
-- [Axios](https://www.axios.com/)
 
 ## 💿 Instalation
 
